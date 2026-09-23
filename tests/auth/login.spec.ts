@@ -1,10 +1,8 @@
-import { test, expect } from '@playwright/test';
-import { LoginPage } from '@pages';
+import { test, expect } from '@fixtures';
 import { config } from '@config';
 
 test.describe('Login', () => {
-  test('standard user can log in', async ({ page }) => {
-    const loginPage = new LoginPage(page);
+  test('standard user can log in', async ({ loginPage, page }) => {
     await loginPage.open();
     await loginPage.loginAs(config.users.standard);
 
