@@ -8,12 +8,14 @@ export class LoginPage extends BasePage {
   private readonly usernameInput: Locator;
   private readonly passwordInput: Locator;
   private readonly loginButton: Locator;
+  readonly errorMessage: Locator;
 
   constructor(page: Page) {
     super(page);
     this.usernameInput = page.getByPlaceholder('Username');
     this.passwordInput = page.getByPlaceholder('Password');
     this.loginButton = page.getByRole('button', { name: 'Login' });
+    this.errorMessage = page.getByTestId('error');
   }
 
   async loginAs(user: User): Promise<void> {

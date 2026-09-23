@@ -10,6 +10,7 @@ export default defineConfig({
   use: {
     baseURL: config.baseURL,
     actionTimeout: config.actionTimeout,
+    testIdAttribute: 'data-test',
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
