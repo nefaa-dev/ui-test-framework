@@ -1,6 +1,8 @@
 import { test, expect } from '@fixtures';
 import { config } from '@config';
 
+// Login tests must run logged out, overriding the project's saved session.
+test.use({ storageState: { cookies: [], origins: [] } });
 test.describe('Login', () => {
   test('standard user can log in', async ({ loginPage, page }) => {
     await loginPage.open();

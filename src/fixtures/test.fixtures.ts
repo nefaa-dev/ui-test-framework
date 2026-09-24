@@ -1,13 +1,21 @@
 import { test as base } from '@playwright/test';
-import { LoginPage } from '@pages';
+import { LoginPage, InventoryPage, CartPage } from '@pages';
 
 export interface PageFixtures {
   loginPage: LoginPage;
+  inventoryPage: InventoryPage;
+  cartPage: CartPage;
 }
 
 export const test = base.extend<PageFixtures>({
   loginPage: async ({ page }, use) => {
     await use(new LoginPage(page));
+  },
+  inventoryPage: async ({ page }, use) => {
+    await use(new InventoryPage(page));
+  },
+  cartPage: async ({ page }, use) => {
+    await use(new CartPage(page));
   },
 });
 

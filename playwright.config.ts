@@ -1,5 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 import { config } from './src/config';
+import { STANDARD_STORAGE_STATE } from './src/config/auth-storage';
 
 export default defineConfig({
   testDir: './tests',
@@ -15,5 +16,12 @@ export default defineConfig({
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
   },
-  projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
+  projects: [
+    { name: 'setup', testMatch: /.*\.setup\.ts/ },
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'], storageState: STANDARD_STORAGE_STATE },
+      dependencies: ['setup'],
+    },
+  ],
 });
