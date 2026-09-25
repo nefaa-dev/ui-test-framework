@@ -1,10 +1,20 @@
 import { test as base } from '@playwright/test';
-import { LoginPage, InventoryPage, CartPage } from '@pages';
+import { 
+  LoginPage, 
+  InventoryPage, 
+  CartPage, 
+  CheckoutInfoPage,
+  CheckoutOverviewPage,
+  CheckoutCompletePage,
+} from '@pages';
 
 export interface PageFixtures {
   loginPage: LoginPage;
   inventoryPage: InventoryPage;
   cartPage: CartPage;
+  checkoutInfoPage: CheckoutInfoPage;
+  checkoutOverviewPage: CheckoutOverviewPage;
+  checkoutCompletePage: CheckoutCompletePage;
 }
 
 export const test = base.extend<PageFixtures>({
@@ -16,6 +26,15 @@ export const test = base.extend<PageFixtures>({
   },
   cartPage: async ({ page }, use) => {
     await use(new CartPage(page));
+  },
+  checkoutInfoPage: async({ page }, use) => {
+    await use(new CheckoutInfoPage(page));
+  },
+  checkoutOverviewPage: async ({ page }, use) => {
+    await use(new CheckoutOverviewPage(page));
+  },
+  checkoutCompletePage: async ({ page }, use) => {
+    await use(new CheckoutCompletePage(page));
   },
 });
 
