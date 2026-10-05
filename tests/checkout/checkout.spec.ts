@@ -1,8 +1,8 @@
 import { test, expect } from '@fixtures';
 import { aCheckoutInfo } from '@builders';
 
-test.describe('Checkout', () => {
-  test('a user can complete a purchase end to end', async ({
+test.describe('Checkout', { tag: '@smoke' },  () => {
+  test('a user can complete a purchase end to end', { tag: '@regression' }, async ({
     inventoryPage,
     cartPage,
     checkoutInfoPage,

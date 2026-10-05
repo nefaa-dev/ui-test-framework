@@ -1,8 +1,8 @@
 import { test as base } from '@playwright/test';
-import { 
-  LoginPage, 
-  InventoryPage, 
-  CartPage, 
+import {
+  LoginPage,
+  InventoryPage,
+  CartPage,
   CheckoutInfoPage,
   CheckoutOverviewPage,
   CheckoutCompletePage,
@@ -27,7 +27,7 @@ export const test = base.extend<PageFixtures>({
   cartPage: async ({ page }, use) => {
     await use(new CartPage(page));
   },
-  checkoutInfoPage: async({ page }, use) => {
+  checkoutInfoPage: async ({ page }, use) => {
     await use(new CheckoutInfoPage(page));
   },
   checkoutOverviewPage: async ({ page }, use) => {
